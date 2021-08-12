@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ict_lms/models/RecentFile.dart';
 import 'package:ict_lms/models/students_data.dart';
 import 'package:ict_lms/public_files/Constant_Data.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
