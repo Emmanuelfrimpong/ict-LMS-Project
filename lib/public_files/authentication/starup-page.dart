@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
-import 'package:ict_lms/public_files/authentication/admin-account/main-login.dart';
+import 'package:ict_lms/administrator_section/admin-auth.dart';
+import 'package:ict_lms/students_section/students_login.dart';
 
 import '../responsive.dart';
 import 'startup/components/side-page.dart';
@@ -13,7 +14,7 @@ class StartupPage extends StatefulWidget {
 }
 
 class _StartupPageState extends State<StartupPage> {
-  String isWho='Student';
+  String isWho = 'Student';
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -43,6 +44,7 @@ class _StartupPageState extends State<StartupPage> {
                   width: Responsive.isDesktop(context)
                       ? size.width * .7
                       : size.width,
+                  height: size.height*.8,
                   //height: Responsive.isMobile(context)?size.height:size.height*.8,
                   child: Responsive.isMobile(context)
                       ? SingleChildScrollView(
@@ -55,24 +57,25 @@ class _StartupPageState extends State<StartupPage> {
                             StartUpSide(
                               width: size.width * .35,
                               height: size.height,
+                              isStudent: isWho=='Student'?true:false,
                               onStudent: () {
                                 setState(() {
-                                  isWho='Student';
+                                  isWho = 'Student';
                                 });
                               },
                               onTeacher: () {
                                 setState(() {
-                                  isWho='Teacher';
+                                  isWho = 'Teacher';
                                 });
                               },
                             ),
-                            if(isWho=='Teacher')
+                            if (isWho == 'Teacher')
                               Expanded(
                                 child: AdminAuth(
-                                    width: size.width*.35,
-
+                                  width: size.width * .35,
                                 ),
-                              )
+                              ),
+                            if (isWho == 'Student') Expanded(child: StudentsLogin())
                           ],
                         ),
                 ),

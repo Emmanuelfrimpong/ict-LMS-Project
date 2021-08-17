@@ -24,7 +24,7 @@ class StartUpSide extends StatelessWidget {
     return Container(
       width: width,
       color: Colors.white,
-      child: Column(
+      child: ListView(
         children: [
           CarouselSlider.builder(
             itemCount: welcomeImages.length,
@@ -47,14 +47,16 @@ class StartUpSide extends StatelessWidget {
               );
             },
           ),
-          Text(
-            'Which one are you ?',
-            style: GoogleFonts.lato(fontSize: 20, color: primaryColor),
+          Center(
+            child: Text(
+              'Which one are you ?',
+              style: GoogleFonts.lato(fontSize: 20, color: primaryColor),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: RoundedButton(
-              color: primaryColor,
+              color:isStudent? primaryColor:secondaryColor.withOpacity(.5),
               textColor: Colors.white,
               text: 'STUDENT',
               press: onStudent,
@@ -63,7 +65,7 @@ class StartUpSide extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: RoundedButton(
-              color: primaryColor,
+              color:isStudent?secondaryColor.withOpacity(.5): primaryColor,
               textColor: Colors.white,
               text: 'TEACHER',
               press: onTeacher,
