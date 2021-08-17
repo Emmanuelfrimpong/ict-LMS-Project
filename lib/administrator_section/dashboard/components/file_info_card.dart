@@ -7,8 +7,8 @@ import 'package:ict_lms/public_files/Constant_Data.dart';
 
 class FileInfoCard extends StatelessWidget {
   const FileInfoCard({
-    Key? key,
-    required this.info,
+    Key key,
+     this.info,
   }) : super(key: key);
 
   final CloudStorageInfo info;
@@ -60,14 +60,14 @@ class FileInfoCard extends StatelessWidget {
                 "${info.numOfFiels} Files",
                 style: Theme.of(context)
                     .textTheme
-                    .caption!
+                    .caption
                     .copyWith(color: Colors.white70),
               ),
               Text(
                 info.totalStorage,
                 style: Theme.of(context)
                     .textTheme
-                    .caption!
+                    .caption
                     .copyWith(color: Colors.white),
               ),
             ],
@@ -80,9 +80,9 @@ class FileInfoCard extends StatelessWidget {
 
 class ProgressLine extends StatelessWidget {
   const ProgressLine({
-    Key? key,
+    Key key,
     this.color = primaryColor,
-    required this.percentage,
+     this.percentage,
   }) : super(key: key);
 
   final Color color;

@@ -1,10 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ict_lms/public_files/Application_Colors.dart';
 import 'package:ict_lms/public_files/controllers/MenuController.dart';
 import 'package:provider/provider.dart';
 import 'administrator_section/main_pages/main_screen.dart';
+import 'public_files/authentication/starup-page.dart';
 
 enum SelectedPage{DashBoard,Students,Class,Topics,Practicals,Exercise,Settings,Complaints}
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
             create: (context) => MenuController(),
           ),
         ],
-        child: MainScreen(),
+        child: StartupPage(),
       ),
     );
   }

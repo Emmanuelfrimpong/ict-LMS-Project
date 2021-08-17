@@ -105,7 +105,7 @@ class StudentTableState extends State<StudentTable> {
       // index: item.id, // for DataRow.byIndex
       key: ValueKey(item.stId),
       selected: item.isSelected,
-      onSelectChanged: (bool? isSelected) {
+      onSelectChanged: (bool isSelected) {
         if (isSelected != null) {
           item.isSelected = isSelected;
 
@@ -201,7 +201,7 @@ class StudentTableState extends State<StudentTable> {
                 sortAscending: _sortAscending,
                 columnSpacing: 0,
                 dividerThickness: 5,
-                onSelectAll: (bool? isSelected) {
+                onSelectAll: (bool isSelected) {
                   if (isSelected != null) {
                     _items.forEach((item) {
                       item.isSelected = isSelected;

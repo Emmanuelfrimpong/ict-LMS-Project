@@ -6,8 +6,8 @@ import 'application_colors.dart';
 
 class SearchField extends StatelessWidget {
    SearchField({
-    Key? key,
-    required this.onChange,required this.onSearch
+    Key key,
+    this.onChange, this.onSearch
   }) : super(key: key);
   final Function(String) onChange;
   final Function onSearch;

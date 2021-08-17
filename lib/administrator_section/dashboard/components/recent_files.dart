@@ -7,7 +7,7 @@ import 'package:ict_lms/public_files/application_colors.dart';
 
 class RecentFiles extends StatefulWidget {
   const RecentFiles({
-    Key? key,
+    Key key,
   }) : super(key: key);
 
   @override
@@ -21,7 +21,7 @@ class _RecentFilesState extends State<RecentFiles> {
       // index: item.id, // for DataRow.byIndex
       key: ValueKey(item.stId),
       selected: item.isSelected,
-      onSelectChanged: (bool? isSelected) {
+      onSelectChanged: (bool isSelected) {
         if (isSelected != null) {
           item.isSelected = isSelected;
 

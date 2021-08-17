@@ -4,14 +4,14 @@ class Students {
   bool isSelected;
   String lastSeen;
   Students(
-      {required this.stId,
-      required this.firstName,
-      required this.surname,
-      required this.stClass,
-      required this.stStatus,
-      required this.stGender,
-      required this.isSelected,
-      required this.lastSeen});
+      { this.stId,
+       this.firstName,
+       this.surname,
+       this.stClass,
+       this.stStatus,
+       this.stGender,
+       this.isSelected,
+       this.lastSeen});
 }
 
 class dummyData {
