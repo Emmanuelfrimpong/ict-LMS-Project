@@ -2,14 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ict_lms/public_files/Application_Colors.dart';
 import 'package:ict_lms/public_files/controllers/MenuController.dart';
+import 'package:ict_lms/public_files/layout_template/layout_template.dart';
+import 'package:ict_lms/public_files/navigation_service.dart';
 import 'package:provider/provider.dart';
-import 'administrator_section/main_pages/main_screen.dart';
-import 'public_files/authentication/starup-page.dart';
+
 
 enum SelectedPage{DashBoard,Students,Class,Topics,Practicals,Exercise,Settings,Complaints}
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (_) => NavigationService()),
+  ],child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
             create: (context) => MenuController(),
           ),
         ],
-        child: StartupPage(),
+        child: LayoutTemplate(),
       ),
     );
   }

@@ -6,6 +6,11 @@ import 'package:ict_lms/public_files/application_colors.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_button.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_input_field.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_password_field.dart';
+import 'package:ict_lms/public_files/navigation_service.dart';
+import 'package:ict_lms/public_files/responsive.dart';
+import 'package:ict_lms/routing/route_names.dart';
+import 'package:ict_lms/students_section/home-page/students-home.dart';
+import 'package:provider/provider.dart';
 
 class StudentsLogin extends StatefulWidget {
   const StudentsLogin({Key key}) : super(key: key);
@@ -27,7 +32,7 @@ class _StudentsLoginState extends State<StudentsLogin> {
           Text(
             "STUDENT'S LOGIN",
             style: GoogleFonts.aclonica(
-                fontSize: 24,
+                fontSize:Responsive.isMobile(context)?16: 24,
                 color: Colors.white,
                 decoration: TextDecoration.underline),
           ),
@@ -75,5 +80,13 @@ class _StudentsLoginState extends State<StudentsLogin> {
     );
   }
 
-  login() {}
+  login() {
+    setState(() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (BuildContext context) => StudentsHomePage()),
+      );
+      //Provider.of<NavigationService>(context,listen: false).navigateTo(StudentHome,'Home');
+    });
+  }
 }

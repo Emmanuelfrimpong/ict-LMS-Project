@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_button.dart';
+import 'package:ict_lms/public_files/responsive.dart';
 
 import '../../../Constant_Data.dart';
 
@@ -23,8 +24,9 @@ class StartUpSide extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
+      height: height,
       color: Colors.white,
-      child: ListView(
+      child: Column(
         children: [
           CarouselSlider.builder(
             itemCount: welcomeImages.length,

@@ -9,6 +9,7 @@ import 'package:ict_lms/public_files/authentication/components/rounded_button.da
 import 'package:ict_lms/public_files/authentication/components/rounded_input_field.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_password_field.dart';
 import 'package:ict_lms/public_files/controllers/utils.dart';
+import 'package:ict_lms/public_files/responsive.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../public_files/Constant_Data.dart';
@@ -43,58 +44,60 @@ class _AdminAuthState extends State<AdminAuth> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        SizedBox(height: 20,),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        backgroundColor:
-                            tab == 'login' ? Colors.white : primaryColor),
-                    onPressed: () {
-                      setState(() {
-                        tab = 'login';
-                      });
-                    },
-                    child: Center(
-                        child: Text(
-                      'LOGIN',
-                      style: GoogleFonts.lato(
-                          color:
-                              tab == 'login' ? primaryColor : Colors.white),
-                    ))),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        backgroundColor:
-                            tab == 'register' ? Colors.white : primaryColor),
-                    onPressed: () {
-                      setState(() {
-                        tab = 'register';
-                      });
-                    },
-                    child: Center(
-                        child: Text(
-                      'REGISTER',
-                      style: GoogleFonts.lato(
-                          color: tab == 'register'
-                              ? primaryColor
-                              : Colors.white),
-                    ))),
-              ),
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: 20,),
+          Padding(
+            padding:  EdgeInsets.symmetric(horizontal:Responsive.isMobile(context)?10: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Expanded(
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor:
+                              tab == 'login' ? Colors.white : primaryColor),
+                      onPressed: () {
+                        setState(() {
+                          tab = 'login';
+                        });
+                      },
+                      child: Center(
+                          child: Text(
+                        'LOGIN',
+                        style: GoogleFonts.lato(
+                            color:
+                                tab == 'login' ? primaryColor : Colors.white),
+                      ))),
+                ),
+                Expanded(
+                  child: TextButton(
+                      style: TextButton.styleFrom(
+                          backgroundColor:
+                              tab == 'register' ? Colors.white : primaryColor),
+                      onPressed: () {
+                        setState(() {
+                          tab = 'register';
+                        });
+                      },
+                      child: Center(
+                          child: Text(
+                        'REGISTER',
+                        style: GoogleFonts.lato(
+                            color: tab == 'register'
+                                ? primaryColor
+                                : Colors.white),
+                      ))),
+                ),
+              ],
+            ),
           ),
-        ),
-        SizedBox(height: 15,),
-        if (tab == 'login') buildLogin(),
-        if(tab=='register')buildRegistration()
-      ],
+          SizedBox(height: 15,),
+          if (tab == 'login') buildLogin(),
+          if(tab=='register')buildRegistration()
+        ],
+      ),
     );
   }
 
@@ -107,11 +110,11 @@ class _AdminAuthState extends State<AdminAuth> {
       Text(
         "TEACHER'S LOGIN",
         style: GoogleFonts.aclonica(
-            fontSize: 24,
+            fontSize:Responsive.isMobile(context)?16: 24,
             color: Colors.white,
             decoration: TextDecoration.underline),
       ),
-      SizedBox(height: 40,),
+      SizedBox(height: 20,),
       RoundedInputField(
         hintText: 'Enter Email',
         type: TextInputType.emailAddress,
@@ -163,7 +166,7 @@ class _AdminAuthState extends State<AdminAuth> {
           Text(
             "TEACHER'S REGISTRATION",
             style: GoogleFonts.aclonica(
-                fontSize: 24,
+                fontSize:Responsive.isMobile(context)?16: 24,
                 color: Colors.white,
                 decoration: TextDecoration.underline),
           ),
@@ -243,11 +246,14 @@ class _AdminAuthState extends State<AdminAuth> {
               height: 100,
               fit: BoxFit.cover,
             )
-                : Icon(
+                : Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Icon(
               Icons.camera_alt,
-              size: 100,
+              size: 60,
               color: Colors.black38,
             ),
+                ),
           ),
         ),
       ),
