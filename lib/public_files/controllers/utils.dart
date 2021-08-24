@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:ict_lms/routing/route_names.dart';
+import 'package:velocity_x/velocity_x.dart';
 showToast(BuildContext context, FToast fToast, IconData iconData, Color color,
     String message) {
   Widget toast = Container(
@@ -41,4 +42,7 @@ showToast(BuildContext context, FToast fToast, IconData iconData, Color color,
     gravity: ToastGravity.CENTER,
     toastDuration: Duration(milliseconds: 2000),
   );
+}
+void sendToPage(BuildContext context, Widget newPage)async {
+  await context.vxNav.push(Uri.parse(MyRouts.lessonRout));
 }

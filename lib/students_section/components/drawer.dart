@@ -2,18 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ict_lms/main.dart';
 import 'package:ict_lms/public_files/controllers/MenuController.dart';
+import 'package:ict_lms/public_files/navigation_service.dart';
 import 'package:provider/provider.dart';
 
-class DrawerPage extends StatelessWidget {
+class DrawerPage extends StatefulWidget {
   const DrawerPage({
     Key key,
   }) : super(key: key);
 
   @override
+  _DrawerPageState createState() => _DrawerPageState();
+}
+
+class _DrawerPageState extends State<DrawerPage> {
+  @override
   Widget build(BuildContext context) {
     return Drawer(
       child: SingleChildScrollView(
-        // it enables scrolling
         child: Column(
           children: [
             DrawerHeader(
@@ -23,6 +28,11 @@ class DrawerPage extends StatelessWidget {
               title: "Home",
               svgSrc: "assets/icons/menu_dashbord.svg",
               press: () {
+                setState(() {
+                  Provider.of<NavigationService>(context, listen: false)
+                      .updateStudentPage(StudentPages.Home,'Home');
+                  Navigator.pop(context);
+                });
 
               },
             ),
@@ -30,24 +40,38 @@ class DrawerPage extends StatelessWidget {
               title: "Lessons",
               svgSrc: "assets/icons/practicals.svg",
               press: () {
-                Provider.of<MenuController>(context, listen: false)
-                    .controlSelectedPage(SelectedPage.Students,'Students');
+                setState(() {
+                  Provider.of<NavigationService>(context, listen: false)
+                      .updateStudentPage(StudentPages.Lessons,'My Lessons');
+                  Navigator.pop(context);
+
+                });
+
               },
             ),
             DrawerListTile(
               title: "Quizzes",
               svgSrc: "assets/icons/exersice.svg",
               press: () {
-                Provider.of<MenuController>(context, listen: false)
-                    .controlSelectedPage(SelectedPage.Class,'Classes');
+                setState(() {
+                  Provider.of<NavigationService>(context, listen: false)
+                      .updateStudentPage(StudentPages.Quiz,'My Quizzes');
+                  Navigator.pop(context);
+
+                });
+
               },
             ),
             DrawerListTile(
               title: "Complaints",
               svgSrc: "assets/icons/complaints.svg",
               press: () {
-                Provider.of<MenuController>(context, listen: false)
-                    .controlSelectedPage(SelectedPage.Topics,'Topics');
+                setState(() {
+                  Provider.of<NavigationService>(context, listen: false)
+                      .updateStudentPage(StudentPages.Complaints,'Complaints');
+                  Navigator.pop(context);
+                });
+
               },
             ),
           ],

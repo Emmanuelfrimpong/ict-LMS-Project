@@ -23,6 +23,8 @@ dependencies:
   fluttertoast: ^8.0.6
   image_picker: ^0.7.4
   responsive_builder: ^0.4.1
+  velocity_x: ^3.3.0
+  url_strategy: ^0.2.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -35,6 +37,8 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/backs/
+    - assets/slides/
       #   - images/a_dot_ham.jpeg
 
   # list giving the asset and other descriptors for the font. For
