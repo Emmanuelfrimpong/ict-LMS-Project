@@ -10,6 +10,7 @@ import 'package:ict_lms/public_files/authentication/components/rounded_input_fie
 import 'package:ict_lms/public_files/authentication/components/rounded_password_field.dart';
 import 'package:ict_lms/public_files/controllers/utils.dart';
 import 'package:ict_lms/public_files/responsive.dart';
+import 'package:ict_lms/routing/route_names.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../public_files/Constant_Data.dart';
@@ -276,7 +277,7 @@ class _AdminAuthState extends State<AdminAuth> {
 
 
   login(){
-
+    sendToPage(context, MyRouts.adminHome);
   }
   register(){
 

@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:ict_lms/public_files/application_colors.dart';
 import 'package:ict_lms/public_files/navigation_service.dart';
 import 'package:ict_lms/students_section/complaints-page/students-complaints-all-screen.dart';
 import 'package:ict_lms/students_section/components/page-title-bar.dart';
@@ -27,7 +24,6 @@ class _StudentMainPageState extends State<StudentMainPage> {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Consumer<NavigationService>(
       builder: (context, value, child) {
         return Scaffold(

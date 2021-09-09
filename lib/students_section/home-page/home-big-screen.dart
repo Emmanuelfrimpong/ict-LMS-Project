@@ -1,10 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ict_lms/models/quiz-data.dart';
 import 'package:ict_lms/public_files/Constant_Data.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
 import 'package:ict_lms/public_files/controllers/utils.dart';
+import 'package:ict_lms/routing/route_names.dart';
 import 'package:ict_lms/students_section/components/course-item.dart';
+import 'package:ict_lms/students_section/components/quiz-itme.dart';
 import 'package:ict_lms/students_section/lessons-page/view-lessons/view-lessons-main-page.dart';
 
 class StudentHomeBig extends StatefulWidget {
@@ -15,6 +18,7 @@ class StudentHomeBig extends StatefulWidget {
 }
 
 class _StudentHomeBigState extends State<StudentHomeBig> {
+  List<Quizzes>incomingQuizzes=[quizzes.first];
   @override
   Widget build(BuildContext context) {
       var size = MediaQuery.of(context).size;
@@ -130,29 +134,18 @@ class _StudentHomeBigState extends State<StudentHomeBig> {
                   ),
                 ),
                 Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    CourseItem(
-                      onPress: (){
-                        sendToPage(context, ViewLessonMainPage());
-                      },
-                      type: 'quiz',
-                      title: 'Quiz Title',
-                      description:
-                      "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough.",
-                    ),
-                    CourseItem(
-                        type: 'quiz',
-                        title: 'Quiz Title',
-                        description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-                    CourseItem(
-                        type: 'quiz',
-                        title: 'Quiz Title',
-                        description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough.")
-                  ],
+                  children: incomingQuizzes
+                      .map((e) =>QuizItem(
+                    quiz: e,
+                    onPress: (){
+                      setState(() {
+                        Navigator.of(context).pushNamed(
+                          MyRouts.routeFromQuizzes(e.quizNumber.replaceAll(new RegExp(r"\s+"), "").toLowerCase()),
+                        );
+                      });
+                    },
+                  ))
+                      .toList(),
                 ),
                 Card(
                   child: Padding(
@@ -168,27 +161,6 @@ class _StudentHomeBigState extends State<StudentHomeBig> {
                 ),
                 SizedBox(
                   height: 15,
-                ),
-                Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    CourseItem(
-                        type: 'lesson',
-                        title: 'Lesson Title',
-                        description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-                    CourseItem(
-                        type: 'lesson',
-                        title: 'Lesson Title',
-                        description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-                    CourseItem(
-                        type: 'lesson',
-                        title: 'Lesson Title',
-                        description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-                  ],
                 ),
               ],
             ),

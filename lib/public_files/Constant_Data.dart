@@ -24,3 +24,9 @@ List slides=[
   'assets/slides/slide5.jpg',
   'assets/slides/slide6.jpg',
 ];
+
+class Constants{
+  Constants._();
+  static const double padding =20;
+  static const double avatarRadius =45;
+}

@@ -22,7 +22,7 @@ class DashboardScreen extends StatelessWidget {
               Header(),
               SizedBox(height: defaultPadding),
               value.getSelectedPage==SelectedPage.DashBoard?
-                  DashBoard():
+                 DashBoard():
                   value.getSelectedPage==SelectedPage.Students?StudentTable():
               Container()
             ],

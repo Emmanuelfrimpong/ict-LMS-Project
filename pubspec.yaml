@@ -25,6 +25,8 @@ dependencies:
   responsive_builder: ^0.4.1
   velocity_x: ^3.3.0
   url_strategy: ^0.2.0
+  group_radio_button: ^1.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -39,6 +41,7 @@ flutter:
     - assets/icons/
     - assets/backs/
     - assets/slides/
+    - assets/animated/
       #   - images/a_dot_ham.jpeg
 
   # list giving the asset and other descriptors for the font. For

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ict_lms/models/lessons-data.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
+import 'package:ict_lms/routing/route_names.dart';
 import 'package:ict_lms/students_section/components/course-item.dart';
 
 class StudentLessons extends StatefulWidget {
@@ -11,48 +13,48 @@ class StudentLessons extends StatefulWidget {
 }
 
 class _StudentLessonsState extends State<StudentLessons> {
+  List<Lessons> incomingLessons;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    incomingLessons = listOfLessons;
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(height: 10,),
-          Text('add some information here',style: GoogleFonts.lato(color: primaryColor),),
-          Wrap(
-            children: [
-              CourseItem(
-                  type: 'lesson',
-                  title: 'Lesson Title',
-                  description:
-                  "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-              CourseItem(
-                  type: 'lesson',
-                  title: 'Lesson Title',
-                  description:
-                  "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-              CourseItem(
-                  type: 'lesson',
-                  title: 'Lesson Title',
-                  description:
-                  "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-              CourseItem(
-                  type: 'lesson',
-                  title: 'Lesson Title',
-                  description:
-                  "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-              CourseItem(
-                  type: 'lesson',
-                  title: 'Lesson Title',
-                  description:
-                  "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-              CourseItem(
-                  type: 'lesson',
-                  title: 'Lesson Title',
-                  description:
-                  "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-            ],
+          SizedBox(
+            height: 10,
           ),
-          SizedBox(height: 20,),
+          Text(
+            'add some information here',
+            style: GoogleFonts.lato(color: primaryColor),
+          ),
+          Wrap(
+            children: incomingLessons
+                .map((e) => CourseItem(
+                      type: 'lesson',
+                      title: e.title,
+                      description: e.description,
+                      lesson: e.lessonNumber,
+                      createdOn: e.createdOn,
+                      onPress: () {
+                        setState(() {
+                          Navigator.of(context).pushNamed(
+                            MyRouts.routeFromSlug(e.lessonNumber.replaceAll(new RegExp(r"\s+"), "").toLowerCase()),
+                          );
+                        });
+                      },
+                    ))
+                .toList(),
+          ),
+          SizedBox(
+            height: 20,
+          ),
         ],
       ),
     );

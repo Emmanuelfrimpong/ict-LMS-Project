@@ -133,26 +133,6 @@ class _StudentHomeMobileState extends State<StudentHomeMobile> {
                 ),
               ),
             ),
-            Wrap(
-              children: [
-                CourseItem(
-                  type: 'quiz',
-                  title: 'Quiz Title',
-                  description:
-                      "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough.",
-                ),
-                CourseItem(
-                    type: 'quiz',
-                    title: 'Quiz Title',
-                    description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-                CourseItem(
-                    type: 'quiz',
-                    title: 'Quiz Title',
-                    description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough.")
-              ],
-            ),
             Card(
               child: Padding(
                 padding:EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -167,25 +147,6 @@ class _StudentHomeMobileState extends State<StudentHomeMobile> {
             ),
             SizedBox(
               height: 15,
-            ),
-            Wrap(
-              children: [
-                CourseItem(
-                    type: 'lesson',
-                    title: 'Lesson Title',
-                    description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-                CourseItem(
-                    type: 'lesson',
-                    title: 'Lesson Title',
-                    description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-                CourseItem(
-                    type: 'lesson',
-                    title: 'Lesson Title',
-                    description:
-                        "The default value for the direction argument is horizontal if we don't set it. That means Flutter will try to put an item in the same row or beside the previous item as long as the space in the same row is enough to place a new item, before moving to the next row if the space isn't enough."),
-              ],
             ),
             SizedBox(
               height: 25,

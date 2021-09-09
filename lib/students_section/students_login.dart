@@ -6,6 +6,7 @@ import 'package:ict_lms/public_files/application_colors.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_button.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_input_field.dart';
 import 'package:ict_lms/public_files/authentication/components/rounded_password_field.dart';
+import 'package:ict_lms/public_files/controllers/utils.dart';
 import 'package:ict_lms/public_files/responsive.dart';
 import 'package:ict_lms/routing/route_names.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -81,6 +82,6 @@ class _StudentsLoginState extends State<StudentsLogin> {
   }
 
   login()async {
-    await context.vxNav.push(Uri.parse(MyRouts.homeRout));
+     sendToPage(context, MyRouts.homeRout);
   }
 }
