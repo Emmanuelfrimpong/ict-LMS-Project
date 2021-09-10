@@ -77,8 +77,7 @@ class _ViewQuizPageState extends State<ViewQuizPage> {
                                         ),
                                       ],
                                     ),
-                                   subtitle:RadioGroup<Strint>,
-                                   /* subtitle: RadioGroup<String>.builder(
+                                    subtitle: RadioGroup<String>.builder(
                                       groupValue: questions[index]['selectedAnswer'],
                                       activeColor: Colors.green,
                                       onChanged: (value) => setState(() {
@@ -88,7 +87,7 @@ class _ViewQuizPageState extends State<ViewQuizPage> {
                                       itemBuilder: (item) => RadioButtonBuilder(
                                         item,
                                       ),
-                                    ),*/
+                                    ),
                                   );
                                 }))
                       ],

@@ -40,27 +40,43 @@ class _StudentQuizzesState extends State<StudentQuizzes> {
                               quiz: e,
                               onPress: () {
                                 setState(() {
-                                  DateTime startDate = DateTime.fromMillisecondsSinceEpoch(e.startTime);
+                                  DateTime startDate =
+                                      DateTime.fromMillisecondsSinceEpoch(e.startTime);
                                   DateTime endDate = DateTime.fromMillisecondsSinceEpoch(e.endTime);
-                                  var diff=DateTime.now().difference(startDate);
-                                  print('===============dif========''$diff');
-                                  if(diff<Duration.zero){
+                                  var diff = DateTime.now().difference(startDate);
+                                  var endDiff = DateTime.now().difference(endDate);
+                                  print('===============dif========' '$endDiff');
+                                  if (diff < Duration.zero) {
                                     KTDialog(
                                       context,
                                       ktDialogType: KTDialogType.Info,
                                       title: 'Quiz Time',
-                                      contentText: 'Please it is not time for the Quiz.\n Quiz will start in ${readTimeLeft(e.startTime)}',
+                                      contentText:
+                                          'Please it is not time for the Quiz.\n Quiz will start in ${readTimeLeft(e.startTime)}',
                                       btn1Text: 'Okay',
                                       btn1Press: () {
                                         Navigator.pop(context);
                                       },
                                     ).show();
+                                  } else if (endDiff > Duration.zero) {
+                                    KTDialog(
+                                      context,
+                                      ktDialogType: KTDialogType.Info,
+                                      title: 'Quiz Time',
+                                      contentText:
+                                          'Please the Quiz is no more available.\n The quiz ended ${readTimeLeft(e.endTime)}',
+                                      btn1Text: 'Okay',
+                                      btn1Press: () {
+                                        Navigator.pop(context);
+                                      },
+                                    ).show();
+                                  } else {
+                                    Navigator.of(context).pushNamed(
+                                      MyRouts.routeFromQuizzes(e.quizNumber
+                                          .replaceAll(new RegExp(r"\s+"), "")
+                                          .toLowerCase()),
+                                    );
                                   }
-                                  /*Navigator.of(context).pushNamed(
-                                    MyRouts.routeFromQuizzes(e.quizNumber
-                                        .replaceAll(new RegExp(r"\s+"), "")
-                                        .toLowerCase()),
-                                  );*/
                                 });
                               },
                             ))
@@ -86,7 +102,15 @@ class _StudentQuizzesState extends State<StudentQuizzes> {
                         decoration: TextDecoration.underline,
                         color: primaryColor.withOpacity(.7),
                         fontWeight: FontWeight.bold),
-                  )
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                      itemCount: 4,
+                      itemBuilder: (context, int index) {
+                        return ListTile(
+                          title: Text('Introduction to computer.',style: GoogleFonts.lato(color: primaryColor),),
+                        );
+                      })
                 ],
               ),
             ),
