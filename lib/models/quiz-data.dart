@@ -47,8 +47,8 @@ List<Quizzes>quizzes=[
       'Quiz can be attempted only once'
     ],
     startTime: 1631614500000,
-    endTime: 1630314000000,
-    createdOn: 1630303200000,
+    endTime: 1631287800000,
+    createdOn: 1631614500000,
     duration: 60,
     questions: [
       {
@@ -423,9 +423,9 @@ List<Quizzes>quizzes=[
       'Quiz will automatically Submit when there is time up',
       'Quiz can be attempted only once'
     ],
-    startTime: 1630309200000,
+    startTime: 1631268000000,
     endTime: 1630314000000,
-    createdOn: 1630303200000,
+    createdOn: 1631268000000,
     duration: 30,
     questions: [
       {
@@ -800,9 +800,9 @@ List<Quizzes>quizzes=[
       'Quiz will automatically Submit when there is time up',
       'Quiz can be attempted only once'
     ],
-    startTime: 1630309200000,
+    startTime: 1631268000000,
     endTime: 1630314000000,
-    createdOn: 1630303200000,
+    createdOn: 1631268000000,
     duration: 30,
     questions: [
       {
