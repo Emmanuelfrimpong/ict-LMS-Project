@@ -9,9 +9,7 @@ import 'package:ict_lms/public_files/authentication/components/rounded_password_
 import 'package:ict_lms/public_files/controllers/utils.dart';
 import 'package:ict_lms/public_files/responsive.dart';
 import 'package:ict_lms/routing/route_names.dart';
-import 'package:velocity_x/velocity_x.dart';
 
-import 'student-main-page.dart';
 
 class StudentsLogin extends StatefulWidget {
   const StudentsLogin({Key key}) : super(key: key);

@@ -16,41 +16,6 @@ class RecentFiles extends StatefulWidget {
 
 class _RecentFilesState extends State<RecentFiles> {
 
-  DataRow _createRow(Students item) {
-    return DataRow(
-      // index: item.id, // for DataRow.byIndex
-      key: ValueKey(item.stId),
-      selected: item.isSelected,
-      onSelectChanged: (bool isSelected) {
-        if (isSelected != null) {
-          item.isSelected = isSelected;
-
-          setState(() {});
-        }
-      },
-      color: MaterialStateColor.resolveWith((Set<MaterialState> states) =>
-      states.contains(MaterialState.selected)
-          ? primaryColor.withOpacity(.5)
-          : Color.fromARGB(100, 215, 217, 219)),
-      cells: [
-        DataCell(
-          Text(item.stId.toString()),
-        ),
-        DataCell(
-          Text('${item.surname} ${item.firstName}' ),
-        ),
-        DataCell(
-          Text(item.stGender),
-        ),
-        DataCell(
-          Text(item.stClass),
-        ),
-        DataCell(
-          Text(item.stStatus),
-        ),
-      ],
-    );
-  }
   @override
   Widget build(BuildContext context) {
     return Container(

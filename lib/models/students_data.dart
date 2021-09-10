@@ -18,7 +18,7 @@ class dummyData {
   List<Students> generateItems() {
     List<Students> data = [
       Students(
-          stClass: 'JHS 1',
+          stClass: 'SHS 1',
           isSelected: false,
           lastSeen: '1627708809000',
           stGender: 'Male',
@@ -27,7 +27,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 2',
+          stClass: 'SHS 2',
           isSelected: false,
           lastSeen: 'Online',
           stGender: 'Male',
@@ -36,7 +36,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 3',
+          stClass: 'SHS 3',
           isSelected: false,
           lastSeen: '1627665609000',
           stGender: 'Male',
@@ -45,7 +45,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 2',
+          stClass: 'SHS 2',
           isSelected: false,
           lastSeen: 'Online',
           stGender: 'Female',
@@ -54,7 +54,7 @@ class dummyData {
           surname: 'Nyamaah',
           firstName: 'Rebecca'),
       Students(
-          stClass: 'JHS 1',
+          stClass: 'SHS 1',
           isSelected: false,
           lastSeen: '1627704900000',
           stGender: 'Male',
@@ -63,7 +63,7 @@ class dummyData {
           surname: 'Amos',
           firstName: 'Julius'),
       Students(
-          stClass: 'JHS 2',
+          stClass: 'SHS 2',
           isSelected: false,
           lastSeen: 'Online',
           stGender: 'Male',
@@ -72,7 +72,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 3',
+          stClass: 'SHS 3',
           isSelected: false,
           lastSeen: 'Online',
           stGender: 'Male',
@@ -81,7 +81,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 2',
+          stClass: 'SHS 2',
           isSelected: false,
           lastSeen: 'Online',
           stGender: 'Female',
@@ -90,7 +90,7 @@ class dummyData {
           surname: 'Nyamaah',
           firstName: 'Rebecca'),
       Students(
-          stClass: 'JHS 1',
+          stClass: 'SHS 1',
           isSelected: false,
           lastSeen: 'Online',
           stGender: 'Male',
@@ -99,7 +99,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 2',
+          stClass: 'SHS 2',
           isSelected: false,
           lastSeen: 'Online',
           stGender: 'Male',
@@ -108,7 +108,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 3',
+          stClass: 'SHS 3',
           isSelected: false,
           lastSeen: '1627751700000',
           stGender: 'Male',
@@ -117,7 +117,7 @@ class dummyData {
           surname: 'Appiah',
           firstName: 'Frank'),
       Students(
-          stClass: 'JHS 2',
+          stClass: 'SHS 2',
           isSelected: false,
           lastSeen: '1627791300000',
           stGender: 'Female',
