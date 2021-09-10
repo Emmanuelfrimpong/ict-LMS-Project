@@ -2,10 +2,14 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ict_lms/models/lessons-data.dart';
+import 'package:ict_lms/models/quiz-data.dart';
 import 'package:ict_lms/public_files/Constant_Data.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
 import 'package:ict_lms/public_files/navigation_service.dart';
+import 'package:ict_lms/routing/route_names.dart';
 import 'package:ict_lms/students_section/components/course-item.dart';
+import 'package:ict_lms/students_section/components/quiz-itme.dart';
 import 'package:provider/provider.dart';
 
 class StudentHomeMobile extends StatefulWidget {
@@ -16,6 +20,8 @@ class StudentHomeMobile extends StatefulWidget {
 }
 
 class _StudentHomeMobileState extends State<StudentHomeMobile> {
+  List<Quizzes>incomingQuizzes=[quizzes.first,quizzes.last,quizzes.first];
+  List<Lessons>recentCourses=[listOfLessons.first,listOfLessons.last,listOfLessons.first];
   @override
   void initState() {
     super.initState();
@@ -133,6 +139,20 @@ class _StudentHomeMobileState extends State<StudentHomeMobile> {
                 ),
               ),
             ),
+            Wrap(
+              children: incomingQuizzes
+                  .map((e) =>QuizItem(
+                quiz: e,
+                onPress: (){
+                  setState(() {
+                    Navigator.of(context).pushNamed(
+                      MyRouts.routeFromQuizzes(e.quizNumber.replaceAll(new RegExp(r"\s+"), "").toLowerCase()),
+                    );
+                  });
+                },
+              ))
+                  .toList(),
+            ),
             Card(
               child: Padding(
                 padding:EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -144,6 +164,24 @@ class _StudentHomeMobileState extends State<StudentHomeMobile> {
                       fontWeight: FontWeight.bold),
                 ),
               ),
+            ),
+            Wrap(
+              children: recentCourses
+                  .map((e) => CourseItem(
+                type: 'lesson',
+                title: e.title,
+                description: e.description,
+                lesson: e.lessonNumber,
+                createdOn: e.createdOn,
+                onPress: () {
+                  setState(() {
+                    Navigator.of(context).pushNamed(
+                      MyRouts.routeFromSlug(e.lessonNumber.replaceAll(new RegExp(r"\s+"), "").toLowerCase()),
+                    );
+                  });
+                },
+              ))
+                  .toList(),
             ),
             SizedBox(
               height: 15,

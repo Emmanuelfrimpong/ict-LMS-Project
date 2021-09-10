@@ -21,7 +21,7 @@ class QuizItem extends StatelessWidget {
       onTap: onPress,
       child: Container(
         decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
-        width: Responsive.isMobile(context) ? size.width * .8 : size.width * .3,
+        width: Responsive.isMobile(context) ? size.width * .8 : size.width * .35,
         margin: EdgeInsets.all(5),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

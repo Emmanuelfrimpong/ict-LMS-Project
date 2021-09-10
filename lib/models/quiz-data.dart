@@ -47,7 +47,7 @@ List<Quizzes>quizzes=[
       'Quiz can be attempted only once'
     ],
     startTime: 1631614500000,
-    endTime: 1631287800000,
+    endTime: 1631275200000,
     createdOn: 1631614500000,
     duration: 60,
     questions: [
@@ -424,7 +424,7 @@ List<Quizzes>quizzes=[
       'Quiz can be attempted only once'
     ],
     startTime: 1631268000000,
-    endTime: 1630314000000,
+    endTime: 1631275200000,
     createdOn: 1631268000000,
     duration: 30,
     questions: [
@@ -801,7 +801,7 @@ List<Quizzes>quizzes=[
       'Quiz can be attempted only once'
     ],
     startTime: 1631268000000,
-    endTime: 1630314000000,
+    endTime: 1631275200000,
     createdOn: 1631268000000,
     duration: 30,
     questions: [

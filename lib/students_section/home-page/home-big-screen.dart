@@ -1,14 +1,13 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ict_lms/models/lessons-data.dart';
 import 'package:ict_lms/models/quiz-data.dart';
 import 'package:ict_lms/public_files/Constant_Data.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
-import 'package:ict_lms/public_files/controllers/utils.dart';
 import 'package:ict_lms/routing/route_names.dart';
 import 'package:ict_lms/students_section/components/course-item.dart';
 import 'package:ict_lms/students_section/components/quiz-itme.dart';
-import 'package:ict_lms/students_section/lessons-page/view-lessons/view-lessons-main-page.dart';
 
 class StudentHomeBig extends StatefulWidget {
   const StudentHomeBig({Key key}) : super(key: key);
@@ -18,7 +17,8 @@ class StudentHomeBig extends StatefulWidget {
 }
 
 class _StudentHomeBigState extends State<StudentHomeBig> {
-  List<Quizzes>incomingQuizzes=[quizzes.first];
+  List<Quizzes>incomingQuizzes=[quizzes.first,quizzes.last,quizzes.first];
+  List<Lessons>recentCourses=[listOfLessons.first,listOfLessons.last,listOfLessons.first];
   @override
   Widget build(BuildContext context) {
       var size = MediaQuery.of(context).size;
@@ -158,6 +158,24 @@ class _StudentHomeBigState extends State<StudentHomeBig> {
                           fontWeight: FontWeight.bold),
                     ),
                   ),
+                ),
+                Wrap(
+                  children: recentCourses
+                      .map((e) => CourseItem(
+                    type: 'lesson',
+                    title: e.title,
+                    description: e.description,
+                    lesson: e.lessonNumber,
+                    createdOn: e.createdOn,
+                    onPress: () {
+                      setState(() {
+                        Navigator.of(context).pushNamed(
+                          MyRouts.routeFromSlug(e.lessonNumber.replaceAll(new RegExp(r"\s+"), "").toLowerCase()),
+                        );
+                      });
+                    },
+                  ))
+                      .toList(),
                 ),
                 SizedBox(
                   height: 15,

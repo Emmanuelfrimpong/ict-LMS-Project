@@ -4,6 +4,7 @@ import 'package:ict_lms/models/quiz-data.dart';
 import 'package:ict_lms/public_files/application_colors.dart';
 import 'package:ict_lms/public_files/controllers/utils.dart';
 import 'package:ict_lms/public_files/custom-dailog.dart';
+import 'package:ict_lms/public_files/responsive.dart';
 import 'package:ict_lms/routing/route_names.dart';
 import 'package:ict_lms/students_section/components/quiz-itme.dart';
 
@@ -45,7 +46,6 @@ class _StudentQuizzesState extends State<StudentQuizzes> {
                                   DateTime endDate = DateTime.fromMillisecondsSinceEpoch(e.endTime);
                                   var diff = DateTime.now().difference(startDate);
                                   var endDiff = DateTime.now().difference(endDate);
-                                  print('===============dif========' '$endDiff');
                                   if (diff < Duration.zero) {
                                     KTDialog(
                                       context,
@@ -89,6 +89,7 @@ class _StudentQuizzesState extends State<StudentQuizzes> {
               ),
             ),
           ),
+          if(!Responsive.isMobile(context))
           Container(
             width: 200,
             decoration: BoxDecoration(border: Border.all(color: primaryColor)),
@@ -108,7 +109,30 @@ class _StudentQuizzesState extends State<StudentQuizzes> {
                       itemCount: 4,
                       itemBuilder: (context, int index) {
                         return ListTile(
-                          title: Text('Introduction to computer.',style: GoogleFonts.lato(color: primaryColor),),
+                          title: Text('Introduction to computer.',style: GoogleFonts.lato(color: primaryColor,fontSize: 12),),
+                        subtitle: Column(
+                          children: [
+                            SizedBox(height: 5,),
+                            Row(
+                              children: [
+                                Text('Scores: 25/40',style: GoogleFonts.lato(color: primaryColor,fontSize: 12),),
+                              ],
+                            ),
+                            SizedBox(height: 5,),
+                            Row(
+                              children: [
+                                Text('Time Used: 45Minute',style: GoogleFonts.lato(color: primaryColor,fontSize: 12),),
+                              ],
+                            ),
+                            SizedBox(height: 10,),
+                            Row(
+                              children: [
+                                Text('Date: Aug 25, 2021',style: GoogleFonts.lato(color: primaryColor,fontSize: 12),),
+                              ],
+                            ),
+                            Divider(color: primaryColor,)
+                          ],
+                        ),
                         );
                       })
                 ],
